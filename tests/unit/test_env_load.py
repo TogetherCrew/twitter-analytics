@@ -1,12 +1,26 @@
-from python_library import Sample
+import os
+
+from dotenv import load_dotenv
 
 
-def test_env_load():
+def test_neo4j_env_variables():
     """
-    test whether the env is loaded correctly
+    test if the environment variables are loaded correctly
     """
-    sample = Sample()
+    load_dotenv()
 
-    env_value = sample.sample_get_env()
+    protocol = os.getenv("NEO4J_PROTOCOL")
+    host = os.getenv("NEO4J_HOST")
+    port = os.getenv("NEO4J_PORT")
+    db_name = os.getenv("NEO4J_DB")
 
-    assert env_value is not None
+    user = os.getenv("NEO4J_USER")
+    password = os.getenv("NEO4J_PASSWORD")
+
+    assert protocol is not None
+    assert host is not None
+    assert port is not None
+    assert db_name is not None
+    assert protocol is not None
+    assert user is not None
+    assert password is not None
